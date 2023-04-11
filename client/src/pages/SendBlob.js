@@ -11,7 +11,7 @@ const SendBlob = () => {
   const fileSubmitHandler = (event) => {
     event.preventDefault();
     const blob = event.target["send-file"].files[0];
-    socket.socket.emit("UPLOAD_FILE", { roomId }, (data) => {
+    socket.socket.emit("UPLOAD_FILE", { roomId, blob }, (data) => {
       console.log(data);
     });
   };

@@ -17,14 +17,17 @@ const blobShareEvent = (_io, socket) => {
   });
 
   /** Event to receive file from client */
-  socket.on("UPLOAD_FILE", ({ roomId }, callback) => {
+  socket.on("UPLOAD_FILE", ({ roomId, blob }, callback) => {
     try {
-      if (!roomId) {
+      if (!roomId || !blob) {
         callback({
-          message: "File not received by server",
+          message: "Invalid paramter to share file",
         });
       } else {
-        console.log("[upload file emit room]", roomId);
+        /** Upload blob to aws s3  - bucket
+         * Generate presigned URL - Share to it receiving client
+         *
+         */
 
         /** Emit event to room */
         socket.to(roomId).emit("GET_FILE_DATA", {
@@ -33,7 +36,6 @@ const blobShareEvent = (_io, socket) => {
             url: "some_url",
           },
         });
-
         callback({
           message: "File successfully received by server",
         });
