@@ -88,7 +88,7 @@ const UploadFile = () => {
     <div className='qrDiv'>
       {/* 👇 Our custom button to select and upload a file */ }
       <button onClick={ handleUploadClick } ref={ buttonRef } className='selectButton'>
-        { 'Click to select' }
+        { 'Click to select a image' }
       </button>
 
       {/* 👇 Notice the `display: hidden` on the input */ }

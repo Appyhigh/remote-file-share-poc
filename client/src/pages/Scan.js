@@ -6,6 +6,7 @@ import useSocket from "../hooks/useSocketManager";
 const Scan = () => {
   const socket = useSocket();
   const [ roomId ] = useState( uuid() );
+  const [ isFetching, setFetching ] = useState( false );
   const [ fileURL, setFileURL ] = useState( null );
   useEffect( () => {
     socket.connectToSocket();
@@ -25,16 +26,24 @@ const Scan = () => {
         img.src = 'data:image/jpeg;base64,' + data.buffer;
         // ctx.drawImage( img, 0, 0 );
         setFileURL( img.src );
+        setFetching( false );
       } );
+      socket.socket.on( 'FETCHING_FILE', (  data  ) => {
+        console.log('fetching the file',data);
+        setFetching( true );
+        if ( data.message == 'FETCHING' ) {
+        }
+      } )
     }
   }, [ socket.socket ] );
 
   return (
     <div>
       <div className='qrDiv'>
-        { fileURL ? <img src={ fileURL } className='uploadedImage' /> : <QRCodeCanvas size={ 300 } value={ `http://31.220.59.159/react/file/${roomId}` } /> }
+        { isFetching ? <>Fethcing your image......</> : <>
+          { fileURL ? <img src={ fileURL } className='uploadedImage' /> : <QRCodeCanvas size={ 300 } value={ `http://31.220.59.159/react/file/${roomId}` } /> }</> }
       </div>
-    </div>
+    </div >
   );
 };
 
