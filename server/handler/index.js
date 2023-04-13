@@ -19,6 +19,7 @@ const blobShareEvent = (_io, socket) => {
   /** Event to receive file from client */
   socket.on("UPLOAD_FILE", ({ roomId, blob }, callback) => {
     try {
+      console.log('upoad file event emitted');
       if (!roomId || !blob) {
         callback({
           message: "Invalid paramter to share file",

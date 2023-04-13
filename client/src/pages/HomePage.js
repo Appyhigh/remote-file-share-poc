@@ -6,7 +6,7 @@ const HomePage = () => {
       <NavLink to={{ pathname: "/send" }}>
         <button>Send File</button>
       </NavLink>
-      <NavLink to={{ pathname: "/scan" }}>
+      <NavLink to={{ pathname: "/receive" }}>
         <button>Receive File</button>
       </NavLink>
     </div>

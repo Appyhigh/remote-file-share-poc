@@ -30,12 +30,19 @@ const ReceiveBlob = () => {
       });
     }
   }, [socket.socket]);
-
-  return fileURL ? (
-    <h3>File received from client</h3>
-  ) : (
-    <h3>Waiting for file to receive</h3>
-  );
+  const fileSubmitHandler = ( event ) => {
+    event.preventDefault();
+    const blob = event.target[ "send-file" ].files[ 0 ];
+    socket.socket.emit( "UPLOAD_FILE", { roomId, blob }, ( data ) => {
+      console.log( data );
+    } );
+  };
+  return (
+    <form onSubmit={ fileSubmitHandler }>
+      <input type="file" name="send-file" />
+      <button type="submit">Share</button>
+    </form>
+  )
 };
 
 export default ReceiveBlob;

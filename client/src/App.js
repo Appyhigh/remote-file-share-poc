@@ -8,9 +8,8 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/send" element={<SendBlob />} />
-        <Route path="/scan" element={<ScanQR />} />
-        <Route path="/receive/:roomId" element={<ReceiveBlob />} />
+        <Route path="/scanQRtouploadFile" element={ <SendBlob />} />
+        <Route path="/file/:roomId" element={<ReceiveBlob />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </div>

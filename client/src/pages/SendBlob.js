@@ -8,13 +8,7 @@ const SendBlob = () => {
 
   const [roomId] = useState(uuid());
 
-  const fileSubmitHandler = (event) => {
-    event.preventDefault();
-    const blob = event.target["send-file"].files[0];
-    socket.socket.emit("UPLOAD_FILE", { roomId, blob }, (data) => {
-      console.log(data);
-    });
-  };
+  
 
   useEffect(() => {
     socket.connectToSocket();
@@ -38,11 +32,8 @@ const SendBlob = () => {
 
   return (
     <div>
-      <QRCodeCanvas size={600} value={roomId} />
-      <form onSubmit={fileSubmitHandler}>
-        <input type="file" name="send-file" />
-        <button type="submit">Share</button>
-      </form>
+      <QRCodeCanvas size={ 600 } value={`http://31.220.59.159/file/${roomId}`} />
+      
     </div>
   );
 };
