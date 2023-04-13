@@ -32,7 +32,7 @@ const SendBlob = () => {
 
   return (
     <div>
-      <QRCodeCanvas size={ 600 } value={`http://31.220.59.159/file/${roomId}`} />
+      <QRCodeCanvas size={ 600 } value={`http://31.220.59.159/react/file/${roomId}`} />
       
     </div>
   );
