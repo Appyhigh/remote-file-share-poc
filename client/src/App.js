@@ -1,15 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import SendBlob from "./pages/SendBlob";
-import ScanQR from "./pages/ScanQR";
-import ReceiveBlob from "./pages/ReceiveBlob";
+import Scan from "./pages/Scan";
+import UploadFile from "./pages/UploadFile";
 
 const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/scanQRtouploadFile" element={ <SendBlob />} />
-        <Route path="/file/:roomId" element={<ReceiveBlob />} />
+        <Route path="/scanQRtouploadFile" element={ <Scan />} />
+        <Route path="/file/:roomId" element={<UploadFile />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </div>

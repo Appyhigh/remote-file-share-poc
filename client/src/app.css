@@ -1,0 +1,22 @@
+.qrDiv {
+    border: 5px solid;
+    display: flex;
+    justify-content: center;
+    padding: 8%;
+}
+.uploadedImage{
+    width:35%
+}
+.selectButton{
+        border-radius: 70%;
+        background-color: #48abe0;
+        color: white;
+        border: none;
+        padding: 5px;
+        font-size: 31px;
+        height: 230px;
+        width: 230px;
+        box-shadow: 0 2px 4px darkslategrey;
+        cursor: pointer;
+        transition: all 0.2s ease;
+}
