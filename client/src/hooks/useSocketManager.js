@@ -6,7 +6,7 @@ const useSocketManager = (roomId) => {
 
   const connectToSocket = () => {
     const socketObject = io(process.env.REACT_APP_SERVER_URL, {
-      transports: ["polling", "websocket", "http"],
+      transports: ["polling", "websocket", "https"],
     });
     setSocket(socketObject);
   };
