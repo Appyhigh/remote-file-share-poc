@@ -5,10 +5,10 @@ const useSocketManager = (roomId) => {
   const [socket, setSocket] = useState(null);
 
   const connectToSocket = () => {
-    const socketObject = io(process.env.REACT_APP_SERVER_URL, {
-      transports: ["polling", "websocket", "https"],
+    const socketObject = io('wss://fileto-sharing.apyhi.com', {
+      transports: [ "websocket"],
     });
-    setSocket(socketObject);
+    setSocket(socketObject); 
   };
 
   const joinSocketRoom = (roomId, callback) => {

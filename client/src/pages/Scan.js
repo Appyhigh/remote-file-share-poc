@@ -41,7 +41,7 @@ const Scan = () => {
     <div>
       <div className='qrDiv'>
         { isFetching ? <>Fethcing your image......</> : <>
-          { fileURL ? <img src={ fileURL } className='uploadedImage' /> : <QRCodeCanvas size={ 300 } value={ `http://file-sharing.apyhi.com/file/${roomId}` } /> }</> }
+          { fileURL ? <img src={ fileURL } className='uploadedImage' /> : <QRCodeCanvas size={ 300 } value={ `https://file-sharing.apyhi.com/file/${roomId}` } /> }</> }
       </div>
     </div >
   );
